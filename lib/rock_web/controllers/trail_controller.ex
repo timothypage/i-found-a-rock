@@ -4,6 +4,8 @@ defmodule RockWeb.TrailController do
   alias Rock.Trails
   alias Rock.Trails.Trail
 
+  plug :authenticate_user
+
   def index(conn, _params) do
     trails = Trails.list_trails()
     render(conn, "index.html", trails: trails)
