@@ -1,1 +1,12 @@
-<div style="height: 5000px"></div>
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-3">Hey, Stranger!</h1>
+    <p>We're collecting info on awesome camping spots in Colorado, with more states coming soon. Right now we're in a pre-alpha, so access is invite only.  You can sign up for the waiting list, and we'll notify you when we go live!</p>
+    <p>
+      <a class="btn btn-primary btn-lg" href="#" role="button">Join the waiting list</a>
+    </p>
+  </div>
+</div>
+
+
+<div style="height: 5000px;"></div>
