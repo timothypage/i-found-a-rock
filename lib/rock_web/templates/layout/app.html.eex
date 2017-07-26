@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="A Guide to Trails, Camping, and Hiking in Colorado and beyond.">
+    <meta name="author" content="Various Artists">
+
+    <title>I found a rock!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#">I Found a Rock</a>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav mr-auto">
+          <a class="nav-item nav-link" href="#">Offroad Trails</a>
+          <a class="nav-item nav-link disabled" href="#">Camping</a>
+          <a class="nav-item nav-link disabled" href="#">Hiking</a>
+        </div>
+
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="#">Sign In</a>
+          <span class="nav-item nav-link"> / </span>
+          <a class="nav-item nav-link" href="#">Sign Up</a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="photo-break" style="background-image: url('/images/banner.jpg');"></div>
+
+
+    <main role="main">
+      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+      <%= render @view_module, @view_template, assigns %>
+    </main>
+
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+  </body>
+</html>

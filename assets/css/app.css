@@ -1,0 +1,8 @@
+/* This file is for your main application css. */
+
+#photo-break {
+  height: 100px;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-image: url("/images/banner.jpg");
+}
