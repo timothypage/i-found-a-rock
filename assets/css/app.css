@@ -1,11 +1,15 @@
 /* This file is for your main application css. */
 
 #photo-break {
-  height: 100px;
+  height: 120px;
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
 
-main {
+.flash-info-error {
   margin-top: 1rem;
+}
+
+hr.footer {
+  margin-top: 5rem;
 }

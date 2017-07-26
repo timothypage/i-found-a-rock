@@ -1,0 +1,7 @@
+<div class="container">
+  <h2>Edit Trail</h2>
+
+  <%= render "form.html", Map.put(assigns, :action, trail_path(@conn, :update, @trail)) %>
+
+  <span><%= link "Back", to: trail_path(@conn, :index) %></span>
+</div>

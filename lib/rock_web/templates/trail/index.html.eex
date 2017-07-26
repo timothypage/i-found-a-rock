@@ -1,0 +1,34 @@
+<div class="container">
+  <h2>Listing Trails</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>High rating</th>
+        <th>Low rating</th>
+        <th>Description</th>
+
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+  <%= for trail <- @trails do %>
+      <tr>
+        <td><%= trail.name %></td>
+        <td><%= trail.high_rating %></td>
+        <td><%= trail.low_rating %></td>
+        <td><%= trail.description %></td>
+
+        <td class="text-right">
+          <span><%= link "Show", to: trail_path(@conn, :show, trail), class: "btn btn-default btn-xs" %></span>
+          <span><%= link "Edit", to: trail_path(@conn, :edit, trail), class: "btn btn-default btn-xs" %></span>
+          <span><%= link "Delete", to: trail_path(@conn, :delete, trail), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+        </td>
+      </tr>
+  <% end %>
+    </tbody>
+  </table>
+
+  <span><%= link "New Trail", to: trail_path(@conn, :new) %></span>
+</div>

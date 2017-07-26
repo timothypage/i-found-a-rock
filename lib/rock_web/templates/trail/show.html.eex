@@ -1,0 +1,30 @@
+<div class="container">
+  <h2>Show Trail</h2>
+
+  <ul>
+
+    <li>
+      <strong>Name:</strong>
+      <%= @trail.name %>
+    </li>
+
+    <li>
+      <strong>High rating:</strong>
+      <%= @trail.high_rating %>
+    </li>
+
+    <li>
+      <strong>Low rating:</strong>
+      <%= @trail.low_rating %>
+    </li>
+
+    <li>
+      <strong>Description:</strong>
+      <%= @trail.description %>
+    </li>
+
+  </ul>
+
+  <span><%= link "Edit", to: trail_path(@conn, :edit, @trail) %></span>
+  <span><%= link "Back", to: trail_path(@conn, :index) %></span>
+</div>

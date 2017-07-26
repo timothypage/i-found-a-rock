@@ -36,12 +36,12 @@
 
     <div id="photo-break" style="background-image: url('/images/banner.jpg');"></div>
 
-    <div class="container">
+    <div class="container flash-info-error">
       <%= if info = get_flash(@conn, :info) do %>
       <p class="alert alert-info" role="alert"><%= info %></p>
       <% end %>
 
-      <%= if error = get_flash(@conn, :info) do %>
+      <%= if error = get_flash(@conn, :error) do %>
       <p class="alert alert-danger" role="alert"><%= error %></p>
       <% end %>
     </div>
@@ -50,7 +50,7 @@
       <%= render @view_module, @view_template, assigns %>
     </main>
 
-    <hr>
+    <hr class="footer">
 
     <div class="container">
       <footer>

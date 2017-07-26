@@ -23,6 +23,7 @@ defmodule RockWeb do
       import Plug.Conn
       import RockWeb.Router.Helpers
       import RockWeb.Gettext
+      import Rock.Auth, only: [authenticate_user: 2]
     end
   end
 

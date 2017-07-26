@@ -7,6 +7,7 @@ defmodule RockWeb.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug Rock.Auth, repo: Rock.Repo
   end
 
   pipeline :api do
@@ -17,6 +18,8 @@ defmodule RockWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+
+    resources "/trails", TrailController
   end
 
   # Other scopes may use custom stacks.
