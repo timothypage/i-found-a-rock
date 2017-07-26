@@ -27,9 +27,18 @@
         </div>
 
         <div class="navbar-nav">
-          <a class="nav-item nav-link" href="#">Sign In</a>
+        <%= if @current_user do %>
+          <span class="nav-item nav-link">Hi, <%= @current_user.username %></span>
           <span class="nav-item nav-link"> / </span>
-          <a class="nav-item nav-link" href="#">Sign Up</a>
+          <%= link "Sign Out", to: session_path(@conn, :delete, @current_user),
+                               method: "delete",
+                               class: "nav-item nav-link" %>
+        <% else %>
+          <%= link "Sign In", to: session_path(@conn, :new),
+                              class: "nav-item nav-link" %>
+          <span class="nav-item nav-link"> / </span>
+          <a class="nav-item nav-link disabled" href="#">Sign Up</a>
+        <% end %>
         </div>
       </div>
     </nav>

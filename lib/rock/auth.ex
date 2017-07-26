@@ -18,7 +18,7 @@ defmodule Rock.Auth do
     user = repo.get_by(Rock.User, username: username)
 
     cond do
-      user && checkpw(given_pass, user.password_hash) ->
+      user && checkpw(given_pass, user.hashed_password) ->
         {:ok, login(conn, user)}
       user ->
         {:error, :unauthorized, conn}
