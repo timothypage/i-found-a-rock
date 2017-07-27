@@ -17,12 +17,25 @@ defmodule Rock.Trails do
       [%Trail{}, ...]
 
   """
-  def list_trails do
-    query = from t in Trail,
-            select: [:id, :name, :difficulty_high, :difficulty_low],
-            order_by: t.name
+  def search_trails(params) do
+    {query, rummage} = Rummage.Ecto.rummage(
+      list_trails_query(),
+      params["rummage"]
+    )
 
-    Repo.all(query)
+    {Repo.all(query), rummage}
+  end
+
+  def list_trails_query do
+    from t in Trail,
+    select: [
+      :id,
+      :name,
+      :difficulty_high,
+      :difficulty_low,
+      :length
+    ],
+    order_by: t.name
   end
 
   def count_trails do

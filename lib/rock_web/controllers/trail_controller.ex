@@ -1,16 +1,20 @@
 defmodule RockWeb.TrailController do
   use RockWeb, :controller
+  use Rummage.Phoenix.Controller
 
   alias Rock.Trails
   alias Rock.Trails.Trail
 
   # plug :authenticate_user
 
-  def index(conn, _params) do
-   render(conn, "index.html",
-    trails: Trails.list_trails(),
-    trail_count: Trails.count_trails()
-  )
+  def index(conn, params) do
+    {trails, rummage} = Trails.search_trails(params)
+
+    render(conn, "index.html",
+      trails: trails,
+      trail_count: Trails.count_trails(),
+      rummage: rummage
+    )
   end
 
   def new(conn, _params) do

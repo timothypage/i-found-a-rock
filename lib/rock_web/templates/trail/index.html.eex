@@ -1,14 +1,41 @@
 <div class="container">
   <h2>Listing Trails</h2>
 
-  <p>Total: <%= @trail_count %>
+  <p>Total: <%= @trail_count %></p>
+  <p>Filtered: <%= @rummage["paginate"]["total_count"] %></p>
+
+  <div class="row">
+    <div class="col-4">
+      <%= search_form(@conn, @rummage, [fields: [
+        name: %{label: "Search By Name", search_type: "ilike"},
+        difficulty_low: %{label: "Max Difficulty", search_type: "lt"},
+      ]]) %>
+
+    </div>
+  </div>
 
   <table class="table">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Low Difficulty</th>
+        <th>
+        <%= sort_link @conn, @rummage, [
+          field: :name,
+          ci: true,
+        ] %>
+        </th>
+        <th>
+        <%= sort_link @conn, @rummage, [
+          field: :difficulty_low,
+          name: "Lowest Difficulty"
+        ] %>
+        </th>
         <th>High Difficulty</th>
+        <th>
+          <%= sort_link @conn, @rummage, [
+            field: :length,
+            name: "Length (miles)"
+            ] %>
+        </th>
         <th></th>
 
         <th></th>
@@ -20,6 +47,7 @@
         <td><%= trail.name %></td>
         <td><%= trail.difficulty_low %></td>
         <td><%= trail.difficulty_high %></td>
+        <td><%= length_in_miles(trail.length) %></td>
 
         <td class="text-right">
           <span><%= link "Show", to: trail_path(@conn, :show, trail), class: "btn btn-default btn-xs" %></span>
@@ -30,6 +58,8 @@
   <% end %>
     </tbody>
   </table>
+
+  <%= pagination_link(@conn, @rummage) %>
 
   <span><%= link "New Trail", to: trail_path(@conn, :new) %></span>
 </div>

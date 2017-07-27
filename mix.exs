@@ -43,7 +43,8 @@ defmodule Rock.Mixfile do
       {:cowboy, "~> 1.0"},
 
       {:comeonin, "~> 4.0-rc"},
-      {:argon2_elixir, "~> 1.2"}
+      {:argon2_elixir, "~> 1.2"},
+      {:rummage_phoenix, github: "timothypage/rummage_phoenix"}
     ]
   end
 
