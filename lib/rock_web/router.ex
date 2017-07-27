@@ -22,6 +22,8 @@ defmodule RockWeb.Router do
     resources "/sessions", SessionController, only: [:new, :create, :delete]
 
     resources "/trails", TrailController
+
+    resources "/waiting-list", WaitListController, only: [:new, :create]
   end
 
   # Other scopes may use custom stacks.
