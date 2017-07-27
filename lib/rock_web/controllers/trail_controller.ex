@@ -7,8 +7,10 @@ defmodule RockWeb.TrailController do
   # plug :authenticate_user
 
   def index(conn, _params) do
-    trails = Trails.list_trails()
-    render(conn, "index.html", trails: trails)
+   render(conn, "index.html",
+    trails: Trails.list_trails(),
+    trail_count: Trails.count_trails()
+  )
   end
 
   def new(conn, _params) do

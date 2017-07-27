@@ -1,6 +1,8 @@
 <div class="container">
   <h2>Listing Trails</h2>
 
+  <p>Total: <%= @trail_count %>
+
   <table class="table">
     <thead>
       <tr>

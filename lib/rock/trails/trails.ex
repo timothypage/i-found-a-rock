@@ -25,6 +25,10 @@ defmodule Rock.Trails do
     Repo.all(query)
   end
 
+  def count_trails do
+    Repo.one(from t in Trail, select: count(t.id))
+  end
+
   @doc """
   Gets a single trail.
 
