@@ -12,15 +12,15 @@
   </div>
 
   <div class="form-group">
-    <%= label f, :high_rating, class: "control-label" %>
-    <%= number_input f, :high_rating, class: "form-control" %>
-    <%= error_tag f, :high_rating %>
+    <%= label f, :difficulty_high, class: "control-label" %>
+    <%= number_input f, :difficulty_high, class: "form-control" %>
+    <%= error_tag f, :difficulty_high %>
   </div>
 
   <div class="form-group">
-    <%= label f, :low_rating, class: "control-label" %>
-    <%= number_input f, :low_rating, class: "form-control" %>
-    <%= error_tag f, :low_rating %>
+    <%= label f, :difficulty_low, class: "control-label" %>
+    <%= number_input f, :difficulty_low, class: "form-control" %>
+    <%= error_tag f, :difficulty_low %>
   </div>
 
   <div class="form-group">

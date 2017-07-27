@@ -9,13 +9,13 @@
     </li>
 
     <li>
-      <strong>High rating:</strong>
-      <%= @trail.high_rating %>
+      <strong>Lowest Difficulty:</strong>
+      <%= @trail.difficulty_low %>
     </li>
 
     <li>
-      <strong>Low rating:</strong>
-      <%= @trail.low_rating %>
+      <strong>Highest Difficulty</strong>
+      <%= @trail.difficulty_high %>
     </li>
 
     <li>

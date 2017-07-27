@@ -18,7 +18,11 @@ defmodule Rock.Trails do
 
   """
   def list_trails do
-    Repo.all(Trail)
+    query = from t in Trail,
+            select: [:id, :name, :difficulty_high, :difficulty_low],
+            order_by: t.name
+
+    Repo.all(query)
   end
 
   @doc """

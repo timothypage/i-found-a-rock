@@ -5,9 +5,9 @@
     <thead>
       <tr>
         <th>Name</th>
-        <th>High rating</th>
-        <th>Low rating</th>
-        <th>Description</th>
+        <th>Low Difficulty</th>
+        <th>High Difficulty</th>
+        <th></th>
 
         <th></th>
       </tr>
@@ -16,9 +16,8 @@
   <%= for trail <- @trails do %>
       <tr>
         <td><%= trail.name %></td>
-        <td><%= trail.high_rating %></td>
-        <td><%= trail.low_rating %></td>
-        <td><%= trail.description %></td>
+        <td><%= trail.difficulty_low %></td>
+        <td><%= trail.difficulty_high %></td>
 
         <td class="text-right">
           <span><%= link "Show", to: trail_path(@conn, :show, trail), class: "btn btn-default btn-xs" %></span>

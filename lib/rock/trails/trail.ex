@@ -5,10 +5,24 @@ defmodule Rock.Trails.Trail do
 
 
   schema "trails" do
-    field :description, :string
-    field :high_rating, :integer
-    field :low_rating, :integer
     field :name, :string
+    field :description, :string
+    field :type, :string
+    field :length, :integer
+
+    field :difficulty_high,       :integer
+    field :difficulty_low,        :integer
+
+    field :rock_crawling_score,   :integer
+    field :sand_and_mud_score,    :integer
+    field :water_crossings_score, :integer
+    field :playgrounds_score,     :integer
+    field :cliffs_and_ledges_score,     :integer
+    field :steep_hills_score,     :integer
+    field :scenery_score,         :integer
+
+    field :directions_to_trailhead, :string
+    field :meeting_place, :string
 
     timestamps()
   end
@@ -16,7 +30,12 @@ defmodule Rock.Trails.Trail do
   @doc false
   def changeset(%Trail{} = trail, attrs) do
     trail
-    |> cast(attrs, [:name, :high_rating, :low_rating, :description])
-    |> validate_required([:name, :high_rating, :low_rating, :description])
+    |> cast(attrs, [
+      :name,
+      :difficulty_low,
+      :difficulty_high,
+      :description
+    ])
+    |> validate_required([:name, :difficulty_low, :difficulty_high, :description])
   end
 end
