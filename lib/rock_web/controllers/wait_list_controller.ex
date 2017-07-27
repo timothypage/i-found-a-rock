@@ -12,7 +12,7 @@ defmodule RockWeb.WaitListController do
     changeset = WaitList.changeset(%WaitList{}, params["wait_list"])
 
     case Rock.Repo.insert(changeset) do
-      {:ok, changeset} ->
+      {:ok, _changeset} ->
         conn
         |> put_flash(:info, "You're signed up!")
         |> put_resp_cookie("signed_up_for_wait_list", "true")
