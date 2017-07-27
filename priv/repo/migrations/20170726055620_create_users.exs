@@ -6,6 +6,7 @@ defmodule Rock.Repo.Migrations.CreateUsers do
       add :email, :string
       add :username, :string
       add :hashed_password, :string
+      add :admin, :boolean
 
       timestamps()
     end

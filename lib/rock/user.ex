@@ -9,6 +9,7 @@ defmodule Rock.User do
     field :password, :string, virtual: true
     field :hashed_password, :string
     field :username, :string
+    field :admin, :boolean
 
     timestamps()
   end
