@@ -36,6 +36,21 @@ defmodule Rock.Trails.Trail do
       :difficulty_high,
       :description
     ])
+    |> sanitize_description
     |> validate_required([:name, :difficulty_low, :difficulty_high, :description])
+  end
+
+  def sanitize_description(%Ecto.Changeset{} = changeset) do
+    if Map.has_key?( changeset.changes, :description ) do
+      {:safe, sanitized_description} = PhoenixHtmlSanitizer.Helpers.sanitize(changeset.changes.description, :basic_html)
+
+      changeset
+      |> Ecto.Changeset.put_change(
+          :description,
+          sanitized_description
+        )
+    else
+      changeset
+    end
   end
 end

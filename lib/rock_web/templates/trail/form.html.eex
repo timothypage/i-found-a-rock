@@ -33,3 +33,9 @@
     <%= submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>
+
+<div id="editor-mount"></div>
+
+<script>
+  CKEDITOR.replace( 'trail[description]' );
+</script>

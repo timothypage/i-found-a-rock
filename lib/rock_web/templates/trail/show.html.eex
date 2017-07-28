@@ -1,13 +1,7 @@
 <div class="container">
-  <h2>Show Trail</h2>
+  <h2><%= @trail.name %></h2>
 
   <ul>
-
-    <li>
-      <strong>Name:</strong>
-      <%= @trail.name %>
-    </li>
-
     <li>
       <strong>Lowest Difficulty:</strong>
       <%= @trail.difficulty_low %>
@@ -18,12 +12,13 @@
       <%= @trail.difficulty_high %>
     </li>
 
-    <li>
-      <strong>Description:</strong>
-      <%= @trail.description %>
-    </li>
-
   </ul>
+
+  <div class="row">
+    <div class="col-6">
+      <%= sanitize @trail.description %>
+    </div>
+  </div>
 
   <span><%= link "Edit", to: trail_path(@conn, :edit, @trail) %></span>
   <span><%= link "Back", to: trail_path(@conn, :index) %></span>

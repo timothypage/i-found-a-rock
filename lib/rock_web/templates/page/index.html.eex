@@ -8,9 +8,4 @@
   </div>
 </div>
 
-<div class="container">
-  <%= ReactPhoenix.ClientSide.react_component("ReactPhoenixExample.Hello", %{rendering_type: "client-side"}) %>
-</div>
-
-
 <div style="height: 5000px;"></div>

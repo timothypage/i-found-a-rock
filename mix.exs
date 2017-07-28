@@ -45,7 +45,7 @@ defmodule Rock.Mixfile do
       {:comeonin, "~> 4.0-rc"},
       {:argon2_elixir, "~> 1.2"},
       {:rummage_phoenix, github: "timothypage/rummage_phoenix"},
-
+      {:phoenix_html_sanitizer, "~> 1.0.0"},
       {:react_phoenix, "~> 0.4.1"},
     ]
   end

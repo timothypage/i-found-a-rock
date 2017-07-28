@@ -37,6 +37,7 @@ defmodule RockWeb do
 
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
+      use PhoenixHtmlSanitizer, :basic_html
 
       import RockWeb.Router.Helpers
       import RockWeb.ErrorHelpers
