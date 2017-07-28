@@ -60,9 +60,3 @@ config :rock, Rock.Repo,
   database: "rock_dev",
   hostname: "localhost",
   pool_size: 10
-
-config :rummage_phoenix, Rummage.Phoenix,
-  default_per_page: 20
-
-config :rummage_ecto, Rummage.Ecto,
-  default_repo: Rock.Repo

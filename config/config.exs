@@ -26,6 +26,10 @@ config :react_phoenix,
   react_stdio_path: Path.join(["assets", "node_modules", ".bin", "react-stdio"]),
   compiled_path: Path.join(["priv", "static", "js", "components"])
 
+config :rummage_ecto, Rummage.Ecto,
+  default_repo: Rock.Repo,
+  default_per_page: 50
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
