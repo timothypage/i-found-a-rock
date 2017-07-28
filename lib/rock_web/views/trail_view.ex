@@ -21,4 +21,16 @@ defmodule RockWeb.TrailView do
   def render("scripts_before.edit.html", _assigns) do
     include_ckeditor()
   end
+
+  def trail_scores do
+    [
+      rock_crawling_score: "Rock Crawling",
+      sand_and_mud_score: "Sand and Mud",
+      water_crossings_score: "Water Crossings",
+      playgrounds_score: "Playgrounds",
+      cliffs_and_ledges_score: "Cliffs and Ledges",
+      steep_hills_score: "Steep Hills",
+      scenery_score: "Scenery",
+    ]
+  end
 end

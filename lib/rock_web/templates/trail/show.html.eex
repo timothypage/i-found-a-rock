@@ -1,22 +1,53 @@
 <div class="container">
   <h2><%= @trail.name %></h2>
 
-  <ul>
-    <li>
-      <strong>Lowest Difficulty:</strong>
-      <%= @trail.difficulty_low %>
-    </li>
+  <div class="row">
+    <div class="col-6">
+      <ul>
+        <li>
+          <strong>Lowest Difficulty:</strong>
+          <%= @trail.difficulty_low %>
+        </li>
 
-    <li>
-      <strong>Highest Difficulty</strong>
-      <%= @trail.difficulty_high %>
-    </li>
+        <li>
+          <strong>Highest Difficulty</strong>
+          <%= @trail.difficulty_high %>
+        </li>
 
-  </ul>
+        <li>
+          <strong>Length</strong>
+          <%= length_in_miles @trail.length %> Miles
+        </li>
+
+        <li>
+          <strong>Type</strong>
+          <%= @trail.type %>
+        </li>
+      </ul>
+
+      <%= sanitize @trail.description %>
+
+    </div>
+
+    <div class="col-3">
+      <%= for {key, name} <- trail_scores() do %>
+        <%= render "_trail_rating.html", %{name: name, rating: Map.fetch!(@trail, key)} %>
+      <% end %>
+    </div>
+  </div>
+
 
   <div class="row">
     <div class="col-6">
-      <%= sanitize @trail.description %>
+      <h4>Directions</h4>
+      <%= sanitize @trail.directions_to_trailhead %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <h4>Meeting Place</h4>
+      <%= sanitize @trail.meeting_place %>
     </div>
   </div>
 
