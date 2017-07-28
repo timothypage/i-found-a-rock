@@ -36,18 +36,20 @@ defmodule Rock.Trails.Trail do
       :difficulty_high,
       :description
     ])
-    |> sanitize_description
+    |> sanitize(:description)
+    |> sanitize(:meeting_place)
+    |> sanitize(:directions_to_trailhead)
     |> validate_required([:name, :difficulty_low, :difficulty_high, :description])
   end
 
-  def sanitize_description(%Ecto.Changeset{} = changeset) do
-    if Map.has_key?( changeset.changes, :description ) do
-      {:safe, sanitized_description} = PhoenixHtmlSanitizer.Helpers.sanitize(changeset.changes.description, :basic_html)
+  def sanitize(%Ecto.Changeset{} = changeset, field) do
+    if Map.has_key?( changeset.changes, field ) do
+      {:safe, sanitized_field} = PhoenixHtmlSanitizer.Helpers.sanitize(changeset.changes[field], :basic_html)
 
       changeset
       |> Ecto.Changeset.put_change(
-          :description,
-          sanitized_description
+          field,
+          sanitized_field
         )
     else
       changeset
