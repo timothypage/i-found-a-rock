@@ -8,6 +8,7 @@ defmodule RockWeb.Router do
     plug :protect_from_forgery
     plug :put_secure_browser_headers
     plug Rock.Auth, repo: Rock.Repo
+    plug PlugRedirectHttps
   end
 
   pipeline :api do

@@ -4,8 +4,8 @@ defmodule Rock.Mixfile do
   def project do
     [
       app: :rock,
-      version: "0.0.1",
-      elixir: "~> 1.4",
+      version: "0.0.3",
+      elixir: "~> 1.5",
       elixirc_paths: elixirc_paths(Mix.env),
       compilers: [:phoenix, :gettext] ++ Mix.compilers,
       start_permanent: Mix.env == :prod,
@@ -33,7 +33,7 @@ defmodule Rock.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, path: "../..", override: true},
+      {:phoenix, "~> 1.3.0", override: true},
       {:phoenix_pubsub, "~> 1.0"},
       {:phoenix_ecto, "~> 3.2"},
       {:postgrex, ">= 0.0.0"},
@@ -46,7 +46,9 @@ defmodule Rock.Mixfile do
       {:argon2_elixir, "~> 1.2"},
       {:rummage_phoenix, github: "timothypage/rummage_phoenix"},
       {:phoenix_html_sanitizer, "~> 1.0.0"},
-      {:react_phoenix, "~> 0.4.1"},
+      {:plug_redirect_https, "~> 0.0.7"},
+
+      {:distillery, "~> 1.4", runtime: false}
     ]
   end
 

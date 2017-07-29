@@ -1,6 +1,6 @@
 <span><%= @name %></span>
 <div class="progress">
-  <div class="progress-bar" style="width: <%= @rating * 20 %>%">
+  <div class="progress-bar" style="width: <%= (@rating || 0) * 20 %>%">
     <%= @rating %>
   </div>
 </div>

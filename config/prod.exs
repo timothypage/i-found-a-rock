@@ -15,8 +15,11 @@ use Mix.Config
 # which you typically run after static files are built.
 config :rock, RockWeb.Endpoint,
   load_from_system_env: true,
-  url: [host: "example.com", port: 80],
-  cache_static_manifest: "priv/static/cache_manifest.json"
+  url: [host: "localhost", port: {:system, "PORT"}],
+  cache_static_manifest: "priv/static/cache_manifest.json",
+  server: true,
+  root: ".",
+  version: Application.spec(:rock, :vsn)
 
 # Do not print debug messages in production
 config :logger, level: :info
