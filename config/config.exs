@@ -22,10 +22,6 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
-config :react_phoenix,
-  react_stdio_path: Path.join(["assets", "node_modules", ".bin", "react-stdio"]),
-  compiled_path: Path.join(["priv", "static", "js", "components"])
-
 config :rummage_ecto, Rummage.Ecto,
   default_repo: Rock.Repo,
   default_per_page: 50
