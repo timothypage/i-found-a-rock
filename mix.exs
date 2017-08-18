@@ -47,6 +47,7 @@ defmodule Rock.Mixfile do
       {:rummage_phoenix, github: "timothypage/rummage_phoenix"},
       {:phoenix_html_sanitizer, "~> 1.0.0"},
       {:plug_redirect_https, "~> 0.0.7"},
+      {:pot, "~> 0.9.6"},
 
       {:distillery, "~> 1.4", runtime: false}
     ]
