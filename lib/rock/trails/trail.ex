@@ -24,6 +24,9 @@ defmodule Rock.Trails.Trail do
     field :directions_to_trailhead, :string
     field :meeting_place, :string
 
+    field :approx_trail_location_lat, :float
+    field :approx_trail_location_long, :float
+
     many_to_many :trailheads, Rock.Trails.Trailhead, join_through: "trails_trailheads"
 
     timestamps()

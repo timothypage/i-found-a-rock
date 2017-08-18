@@ -48,6 +48,7 @@ defmodule Rock.Mixfile do
       {:phoenix_html_sanitizer, "~> 1.0.0"},
       {:plug_redirect_https, "~> 0.0.7"},
       {:pot, "~> 0.9.6"},
+      {:httpoison, "~> 0.13.0"},
 
       {:distillery, "~> 1.4", runtime: false}
     ]

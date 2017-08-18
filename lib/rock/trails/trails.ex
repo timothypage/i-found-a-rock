@@ -42,6 +42,18 @@ defmodule Rock.Trails do
     Repo.one(from t in Trail, select: count(t.id))
   end
 
+  def list_trails_for_distance() do
+    query = from t in Trail,
+      select: %{
+        id: t.id,
+        lat: t.approx_trail_location_lat,
+        long: t.approx_trail_location_long
+      },
+      where: not(is_nil(t.approx_trail_location_lat))
+
+    Repo.all(query)
+  end
+
   @doc """
   Gets a single trail.
 
